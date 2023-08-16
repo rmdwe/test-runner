@@ -1,0 +1,16 @@
+name: test workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  self:
+    steps:
+      - name: print and set env
+        run: |
+          echo $PATH
+          echo "/bin/test/path" >> $GITHUB_PATH
+      - name: print that
+        run: |
+          echo $PATH

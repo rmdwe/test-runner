@@ -6,6 +6,7 @@ on:
 
 jobs:
   self:
+    runs-on: ubuntu-latest
     steps:
       - name: print and set env
         run: |

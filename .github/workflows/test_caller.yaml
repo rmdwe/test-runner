@@ -1,0 +1,17 @@
+name: test caller workflow to be called
+
+on:
+  workflow_call:
+    secrets:
+      TEST_SECRET:
+        description: test secret
+        required: false
+
+jobs:
+  self:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test secrets
+        run: |
+          echo $PATH
+          export

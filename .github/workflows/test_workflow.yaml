@@ -1,0 +1,11 @@
+name: test for secret passing
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    test:
+        uses: rmdwe/test-runner/.github/workflows/test_caller.yaml@main
+        secrets: inherit

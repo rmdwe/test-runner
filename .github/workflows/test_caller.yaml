@@ -6,16 +6,16 @@ on:
       TEST_SECRET:
         description: test secret
         required: false
-      # TEST_SECRET_NONPROD:
-      #   description: test nonprod secret
-      #   required: false
+      TEST_SECRET_NONPROD:
+        description: test nonprod secret
+        required: false
 
 jobs:
   self:
     runs-on: ubuntu-latest
     env:
-      test: ${{ secrets.TEST_SECRET }}
-      test_nonprod: ${{ secrets.TEST_SECRET_NONPROD }}
+      test: ${{ secrets.TEST_SECRET_NONPROD != '' && secrets.TEST_SECRET_NONPROD || secrets.TEST_SECRET }}
+      # test_nonprod: ${{ secrets.TEST_SECRET_NONPROD }}
     steps:
       - name: test secrets
         run: |

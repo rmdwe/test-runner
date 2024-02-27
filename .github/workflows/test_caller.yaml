@@ -11,7 +11,7 @@ jobs:
   self:
     runs-on: ubuntu-latest
     env:
-      test: $(secrets.TEST_SECRET)
+      test: ${{ secrets.TEST_SECRET }}
     steps:
       - name: test secrets
         run: |

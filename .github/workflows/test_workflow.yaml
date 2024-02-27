@@ -8,4 +8,5 @@ on:
 jobs:
     test:
         uses: rmdwe/test-runner/.github/workflows/test_caller.yaml@main
-        secrets: inherit
+        secrets: 
+            TEST_SECRET: ${{ secrets.TEST_SECRET_NONPROD }}

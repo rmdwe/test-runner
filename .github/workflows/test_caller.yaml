@@ -6,14 +6,26 @@ on:
       TEST_SECRET:
         description: test secret
         required: false
+      # TEST_SECRET_NONPROD:
+      #   description: test nonprod secret
+      #   required: false
 
 jobs:
   self:
     runs-on: ubuntu-latest
     env:
       test: ${{ secrets.TEST_SECRET }}
+      test_nonprod: ${{ secrets.TEST_SECRET_NONPROD }}
     steps:
       - name: test secrets
         run: |
           echo $PATH
           export
+          if [ $test == ${{ secrets.TEST_SECRET }} ]
+          then
+            echo 'have TEST_SECRET'
+          fi
+          if [ $test == ${{ secrets.TEST_SECRET_NONPROD }} ]
+          then
+            echo 'have TEST_SECRET_NONPROD'
+          fi
